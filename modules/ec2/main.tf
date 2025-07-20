@@ -1,5 +1,5 @@
 resource "aws_instance" "server" {
-  count         = var.create ? 1 : 0
+  count         = var.instance_count
   ami           = var.ami_id
   instance_type = var.instance_type
   key_name      = var.key_name
@@ -7,6 +7,6 @@ resource "aws_instance" "server" {
   vpc_security_group_ids = var.security_group_ids
 
   tags = {
-    Name = var.name
+    Name = "var.name-${count.index + 1}"
     }
 }

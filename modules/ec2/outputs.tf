@@ -1,3 +1,4 @@
-output "public_ip" {
-  value = length(aws_instance.server) > 0 ? aws_instance.server[0].public_ip : null
-}
+output "public_ips" {
+  description = "Public IPs of all EC2 instances"
+  value       = [aws_instance.server[*].public_ip]
+  }
