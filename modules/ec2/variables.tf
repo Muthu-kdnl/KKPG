@@ -3,8 +3,9 @@ variable "create" {
   default = false
 }
 variable "name" {
-  type = string
-  default = "MyEC2Instance"
+   type = list(string)
+   default = ["jenkins", "docker", "prometheus", "grafana"]
+  
 }
 
 variable "ami_id" {
@@ -28,7 +29,8 @@ variable "security_group_ids" {
 variable "instance_count" {
   description = "Number of EC2 instances to create"
   type        = number
-  default     = 3
+  default     = 1
 }
+
 
 
